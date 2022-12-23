@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://404nw.github.io/ -->
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <title>Electrooster</title>
+  <meta name="generator" content="Jekyll v3.9.2">
+  <meta property="og:title" content="Electrooster">
+  <meta property="og:locale" content="en_US">
+  <link rel="canonical" href="https://404nw.github.io/">
+  <meta property="og:url" content="https://404nw.github.io/">
+  <meta property="og:site_name" content="404nw.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta property="twitter:title" content="Electrooster">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Electrooster","name":"404nw.github.io","url":"https://404nw.github.io/"}</script>
+  <!-- End Jekyll SEO tag -->
+
+  <style class="anchorjs"></style>
+  <link rel="stylesheet" href="./index_files/style.css">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  <!-- Setup Google Analytics -->
+
+
+
+  <!-- You can set your favicon here -->
+  <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+  <!-- end custom head snippets -->
+
+</head>
+
+<body>
+  <div class="container-lg px-3 my-5 markdown-body">
+    <div style="height:50px; background-color:#0baba5">
+      <h1 id="electrooster" style="text-align:center; color: white">ESE5190 Course Project: Electrooster</h1>
+    </div>
+
+
+    <h2 id="team">Team<a class="anchorjs-link " href="https://404nw.github.io/#team" aria-label="Anchor"
+        data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+    <p>Minghui Ni: <a href="https://github.com/minghuin">github</a></p>
+
+    <p>Yizhe Wang: <a href="github.com/ApolloW1">github</a></p>
+    <h1 id="design">Design</h1>
+    <p>Elect-rooster is an intelligent clock system. Current time and temperature are shown on the screen of Pico4ml and
+      the brightness of the screen will be adjusted automatically based on the environment. The rooster will crow every
+      morning when it sees the light.</p>
+
+    <p><img src="./index_files/209373902-898495f5-73e6-4c86-8a3a-431418999f2f.jpeg"
+        alt="05AC778D-8127-456B-AF4F-78B8116FB1DC_1_102_a"></p>
+
+    <h2 id="feature">Feature<a class="anchorjs-link " href="https://404nw.github.io/#feature" aria-label="Anchor"
+        data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+    <p>Initialization of current time is realized by WiFi module ESP 8266.</p>
+
+    <p>Instant temperature is collected by the temperature sensor on Pico4ml.</p>
+
+    <p>Another interesting feature is that the brightness of the screen would automatically adjust based on the
+      environment. It will go dark in a dark environment, so your eyes won’t get hurt. This is realized by the average
+      brightness calculation based on the pictures shot by the camera.</p>
+
+    <h1 id="project-instruction">Project Instruction</h1>
+
+    <p>The instruction contains two parts: </p>
+
+    <h2 id="esp8266-configuration">1) ESP8266 Configuration<a class="anchorjs-link "
+        href="https://404nw.github.io/#esp8266-configuration" aria-label="Anchor" data-anchorjs-icon=""
+        style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+    <p>The code can be found <a
+        href="https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/SerialHttpsClient.ino/SerialHttpsClient.ino.ino">here</a>
+    </p>
+
+    <ol>
+      <li>
+        <p>Utilize a ESP8266 programmer and arduino IDE to program this ESP8266</p>
+
+        <p>Helpful Links:</p>
+
+        <p>(1) <a href="https://github.com/esp8266/Arduino#contents">How to install Arduino IDE ESP8266 support</a></p>
+
+        <p>(2) <a href="https://smartsolutions4home.com/how-to-program-esp8266/">Instruction of utlizing Arduino IDE to
+            program ESP8266</a></p>
+      </li>
+      <li>
+        <p>Then, setup the connection between the ESP8266 and the pico4ml dev kit by 3V3/GND/GP0/GP1/GP26 to ESP01
+          3V3/GND/RX/TX/EN.</p>
+      </li>
+    </ol>
+
+    <p>Now, the ESP8266 setup has been finished and you are halfway to have your own rooster!</p>
+
+    <h2 id="pico4ml-configuration">2) PICO4ML Configuration<a class="anchorjs-link "
+        href="https://404nw.github.io/#pico4ml-configuration" aria-label="Anchor" data-anchorjs-icon=""
+        style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+    <p>For the configuration of the PICO4ML to run the code, please check the readme file <a
+        href="https://github.com/404NW/ESE519_Project_Code/blob/main/rp2040_hm01b0_st7735/README.md">here</a></p>
+
+    <h2 id="demo--functionality">Demo &amp; Functionality<a class="anchorjs-link "
+        href="https://404nw.github.io/#demo--functionality" aria-label="Anchor" data-anchorjs-icon=""
+        style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+    <p>After finishing both configurations, the ESP8266’s LED will be turned on and keep listening to the get request
+      sent by the PICO4ML through UART. The LED is on demonstrating that the wifi connection has been built and the
+      ESP8266 module keeps sending HTTP GET request to a predetermined time API.</p>
+
+    <p>Then, after the time initialization has been finished, the clock function will work continuously. The TFT screen
+      will display the room temperature data and the current time. Additionally, the buzzer will be triggered if the
+      enviroment light level is high enough. This buzzer will have a activited time limit of 40 seconds each day. This
+      limit will be refreshed when the clock reaches the midnight to make sure the electrooster could really work in the
+      morning.</p>
+
+    <p>Brightness Control</p>
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="./index_files/IMG_0537.gif" style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>WiFi Initialization</p>
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="./index_files/WiFi.gif" style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>Rooster</p>
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="./index_files/Rooster.gif" style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <h2 id="diagram">Diagram<a class="anchorjs-link " href="https://404nw.github.io/#diagram" aria-label="Anchor"
+        data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+    <p>
+    <div style="text-align: center;"><img width="416" alt="image"
+        src="./index_files/209372855-7c0fa8dc-8ebf-4236-869c-a21c33068fa6.png"></div>
+    </p>
+
+    <h1 id="pio-module">PIO Module</h1>
+
+    <p>In this project, we utilized the PIO module to drive our camera to grab the environmental light level data
+      lively. This data will be used not only in the “rooster” control but also the brightness control of the TFT
+      display. We set a threshold in our main program, when the environmental light level is higher than the threshold,
+      the TFT display will have full lightness. Otherwise, the TFT display will reduce its brightness to protect the
+      user’s vision.</p>
+
+    <p>The code can be found <a
+        href="https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/image.pio">here</a></p>
+
+    <h1 id="components">Components</h1>
+
+    <p>Pico4ml</p>
+
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="https://raw.githubusercontent.com/ApolloW1/ESE519_Project/main/media/materials/Pico4ml.jpg"
+        style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>Buzzer</p>
+
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="https://raw.githubusercontent.com/ApolloW1/ESE519_Project/main/media/materials/Buzzer.jpg"
+        style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>WiFi module: ESP 8266</p>
+
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="https://raw.githubusercontent.com/ApolloW1/ESE519_Project/main/media/materials/ESP%208266.png"
+        style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>Power Bank</p>
+
+    <p>
+    <div style="height: 400px; text-align: center;">
+      <img src="https://raw.githubusercontent.com/ApolloW1/ESE519_Project/main/media/materials/Power%20Bank.png"
+        style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <p>Camera Module: HiMax HM01B0</p>
+
+    <p>Temperature sensor: ICM-20948</p>
+
+    <p>Screen: 0.96 inch LCD SPI Display</p>
+
+    <h1 id="development-overview">Development Overview</h1>
+    <ol>
+      <li>
+        <p>Realize screen display</p>
+      </li>
+      <li>
+        <p>Realize temperature measuring</p>
+      </li>
+      <li>
+        <p>Realize time correction</p>
+      </li>
+    </ol>
+
+    <p style="font-weight:bold"> Demo & Console Output
+    <div style="height: 400px; text-align: center;">
+      <img src="./index_files/demo.gif" style="height: 400px; text-align: center;">
+    </div>
+    </p>
+
+    <ol>
+      <li>
+        <p>Buzzer control by light detection from the camera</p>
+      </li>
+      <li>
+        <p>Complete screen brightness adjusting with the camera</p>
+      </li>
+      <li>
+        <p>WiFi module setup</p>
+      </li>
+      <li>
+        <p>Get initial time from website</p>
+      </li>
+    </ol>
+
+    <h1 id="troubleshooting">Troubleshooting</h1>
+    <h2 id="temperature-measuring-problem">Temperature Measuring Problem<a class="anchorjs-link "
+        href="https://404nw.github.io/#temperature-measuring-problem" aria-label="Anchor" data-anchorjs-icon=""
+        style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+    <p>At first, the data obtained by the temperature sensor is nor correct, which is because of the intrinsic setting
+      on different sensors. We measure the outdoor temperature and indoor temperature as anchor to adjust the algorithms
+      in the code, resulting in accurate temperature measuring.</p>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>float temp = 27-(result-0.706)/0.003021;
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="time-accuracy-problem">Time Accuracy Problem<a class="anchorjs-link "
+        href="https://404nw.github.io/#time-accuracy-problem" aria-label="Anchor" data-anchorjs-icon=""
+        style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+    <p>The time is not accurate when we simply set sleep time to 1000 ms in the code. We then record the difference of
+      100 s and 1000 s of the program and compare it with the real time to adjust the sleep time, which gives us a
+      relative correct timestemp.</p>
+
+    <h1 id="reflection">Reflection</h1>
+    <p>This system operates independantly without the laptop, which makes it portable and pratical in life. The WiFi
+      module makes the initilization easier without setting the time manually.</p>
+
+    <p>The buzzer could be replaced by a speaker which could play different sound to produce a ringtone.</p>
+
+    <p>There is a time delay caused by the WiFi module catching time information from the website.</p>
+
+    <h1 id="code-repo">Code Repo</h1>
+    <p>The project repo containing the code and presentation slides can be found <a
+        href="https://github.com/404NW/ESE519_Project_Code">here</a></p>
+
+
+  </div>
+  <script src="./index_files/anchor.min.js.download" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg="
+    crossorigin="anonymous"></script>
+  <script>anchors.add();</script>
+
+
+</body>
+
+</html>
