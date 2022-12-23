@@ -18,17 +18,57 @@ Instant temperature is collected by the temperature sensor on Pico4ml.
 
 Another interesting feature is that the brightness of the screen would automatically adjust based on the environment. It will go dark in a dark environment, so your eyes won't get hurt. This is realized by the average brightness calculation based on the pictures shot by the camera. 
 
+# Project Instruction
 
-## Demo
+The instruction contains two parts: 1) ESP8266 scratch loading 2) pico4ml compiled C program loading
+
+## ESP8266 Configuration
+
+The code is [here](https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/SerialHttpsClient.ino/SerialHttpsClient.ino.ino)
+
+1. Utilize a ESP8266 programmer and arduino IDE to program this ESP8266
+
+   Helpful Links:
+
+   (1) [How to install Arduino IDE ESP8266 support](https://github.com/esp8266/Arduino#contents)
+
+   (2) [Instruction of utlizing Arduino IDE to program ESP8266](https://smartsolutions4home.com/how-to-program-esp8266/)
+
+2. Then, setup the connection between the ESP8266 and the pico4ml dev kit by 3V3/GND/GP0/GP1/GP26 to ESP01 3V3/GND/RX/TX/EN.
+
+Now, the ESP8266 setup has been finished
+
+
+
+## PICO4ML Configuration
+
+For the configuration of the PICO4ML to run the code, please check the readme file [here](https://github.com/minghuin/ESE519_General/tree/main/rp2040_hm01b0_st7735#readme)
+
+
+
+
+## Demo & Functionality
 
 https://github.com/ApolloW1/ESE519_Project/blob/main/media/demos/IMG_0537.gif
+
+After finishing both configurations, the ESP8266's LED will be turned on and keep listening to the get request sent by the PICO4ML through UART. The LED is on demonstrating that the wifi connection has been built and the ESP8266 module keeps sending HTTP GET request to a predetermined time API. 
+
+Then, after the time initialization has been finished, the clock function will work continuously. The TFT screen will display the room temperature data and the current time. Additionally, the buzzer will be triggered if the enviroment light level is high enough. This buzzer will have a activited time limit of 40 seconds each day. This limit will be refreshed when the clock reaches the midnight to make sure the electrooster could really work in the morning.
 
 ## Diagram
 <img width="416" alt="image" src="https://user-images.githubusercontent.com/114015725/209372855-7c0fa8dc-8ebf-4236-869c-a21c33068fa6.png">
 
 
 
-# Materials
+# PIO Module
+
+In this project, we utilized the PIO module to drive our camera to grab the environmental light level data lively. This data will be used not only in the "rooster" control but also the brightness control of the TFT display. We set a threshold in our main program, when the environmental light level is higher than the threshold, the TFT display will have full lightness. Otherwise, the TFT display will reduce its brightness to protect the user's vision.
+
+The code can be found [here](https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/image.pio) 
+
+
+
+# Components
 
 Pico4ml
 
@@ -54,7 +94,7 @@ Screen: 0.96 inch LCD SPI Display
 
 # Development Overview
 1. Realize screen display
- 
+
 2. Realize temperature measuring
 
 3. Realize time correction
@@ -86,5 +126,8 @@ The buzzer could be replaced by a speaker which could play different sound to pr
 
 There is a time delay caused by the WiFi module catching time information from the website.
 
-# Code
-https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/main.c
+# Code Repo
+https://github.com/minghuin/ESE519_General/blob/main/rp2040_hm01b0_st7735/
+
+
+
