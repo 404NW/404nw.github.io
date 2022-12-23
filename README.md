@@ -136,7 +136,7 @@ The buzzer could be replaced by a speaker which could play different sound to pr
 There is a time delay caused by the WiFi module catching time information from the website.
 
 # Code Repo
-https://github.com/404NW/ESE519_Projecr_Code
+https://github.com/404NW/ESE519_Project_Code
 
 
 
