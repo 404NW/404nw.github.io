@@ -48,8 +48,17 @@ For the configuration of the PICO4ML to run the code, please check the readme fi
 
 
 ## Demo & Functionality
+Brightness Control
 
 https://github.com/ApolloW1/ESE519_Project/blob/main/media/demos/IMG_0537.gif
+
+WiFi Initialization
+
+https://github.com/ApolloW1/ESE519_Project/blob/main/media/demos/WiFi.gif
+
+Rooster
+
+https://github.com/ApolloW1/ESE519_Project/blob/main/media/demos/Rooster.gif
 
 After finishing both configurations, the ESP8266's LED will be turned on and keep listening to the get request sent by the PICO4ML through UART. The LED is on demonstrating that the wifi connection has been built and the ESP8266 module keeps sending HTTP GET request to a predetermined time API. 
 
